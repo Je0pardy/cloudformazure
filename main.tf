@@ -57,6 +57,41 @@ resource "azurerm_network_security_group" "nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
+    security_rule {
+    name                       = "Grafana"
+    priority                   = 1002
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "3000"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+    security_rule {
+    name                       = "Prometheus"
+    priority                   = 1003
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "9090"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
+
+  security_rule {
+    name                       = "Gateway"
+    priority                   = 1003
+    direction                  = "Inbound"
+    access                     = "Allow"
+    protocol                   = "Tcp"
+    source_port_range          = "*"
+    destination_port_range     = "9091"
+    source_address_prefix      = "*"
+    destination_address_prefix = "*"
+  }
 
   tags = {
     environment = "production"
@@ -152,6 +187,30 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
 
   tags = {
     environment = "production"
+  }
+
+  provisioner "remote-exec" {
+    inline = [
+      "sudo apt-get update",
+      "curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -",
+      "sudo apt install -y apt-transport-https ca-certificates curl software-properties-common",
+      "sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable\"",
+      "sudo apt-cache policy docker-ce",
+      "sudo apt-get update",
+      "sudo apt-get install -y docker-ce docker-compose",
+      "sudo usermod -aG docker azureuser",
+      "git clone https://github.com/stefanprodan/dockprom.git",
+      "cd dockprom",
+      "sleep 10",
+      "ADMIN_USER=admin ADMIN_PASSWORD=admin ADMIN_PASSWORD_HASH=JDJhJDE0JE91S1FrN0Z0VEsyWmhrQVpON1VzdHVLSDkyWHdsN0xNbEZYdnNIZm1pb2d1blg4Y09mL0ZP docker-compose up -d"
+    ]
+
+    connection {
+      type     = "ssh"
+      user     = "azureuser"
+      host     = azurerm_linux_virtual_machine.linuxvm.public_ip_address
+      private_key = tls_private_key.example_ssh.private_key_pem 
+    }
   }
 }
 
