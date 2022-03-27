@@ -30,9 +30,8 @@ This project is used to create a virtual machine, install and configure Promethe
   - linux_virtual_machine_name  = "linuxvm019"
 
 ## Building the Terraform-based infrastructure
-*First off all you need login azure portal via azure cli*
+*First off all you need login azure portal via azure cli*  
 "az login"
-
 *initialize terraform Azure modules*  
 "terraform init"   
 *plan and save the infra changes into tfplan file*  
