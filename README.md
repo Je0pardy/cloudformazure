@@ -21,13 +21,13 @@ This project is used to create a virtual machine, install and configure Promethe
   - linux_virtual_machine_name  = "linuxvm019"
 
 ## Building the Terraform-based infrastructure
-- initialize terraform Azure modules
+*initialize terraform Azure modules*
 terraform init
-- plan and save the infra changes into tfplan file
+*plan and save the infra changes into tfplan file*
 terraform plan -out tfplan
-- plan and save the infra changes into tfplan file
+*apply the plan*
 terraform apply tfplan
-- delete the infra
+*delete the infra*
 terraform destroy
 
 ## Resources ##
