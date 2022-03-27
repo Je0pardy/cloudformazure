@@ -197,7 +197,7 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "sudo add-apt-repository \"deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable\"",
       "sudo apt-cache policy docker-ce",
       "sudo apt-get update",
-      "sudo apt-get install -y docker-ce docker-compose",
+      "sudo apt-get install -y docker-ce docker-compose python3-pip",
       "sudo usermod -aG docker azureuser",
       "git clone https://github.com/stefanprodan/dockprom.git",
       "cd dockprom",
@@ -206,7 +206,9 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "ADMIN_USER=admin ADMIN_PASSWORD=admin ADMIN_PASSWORD_HASH=JDJhJDE0JE91S1FrN0Z0VEsyWmhrQVpON1VzdHVLSDkyWHdsN0xNbEZYdnNIZm1pb2d1blg4Y09mL0ZP sudo docker-compose up -d",
       "cd ..",
       "git clone https://github.com/Je0pardy/cloudformazure.git",
-      "cd cloudformazure"
+      "cd cloudformazure",
+      "pip3 install prometheus_client",
+      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/"
     ]
 
     connection {
@@ -215,9 +217,9 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       host     = azurerm_linux_virtual_machine.linuxvm.public_ip_address
       private_key = tls_private_key.example_ssh.private_key_pem 
     }
-  }
-  provisioner "local-exec" { # Create a "myKey.pem" to your computer!!
-    command = "echo '${tls_private_key.example_ssh.private_key_pem}' > ./myKey.pem"
-  }  
+  } 
 }
-
+resource "local_file" "key" {
+  filename = "myKeylocal.pem"
+  content  = "${tls_private_key.example_ssh.private_key_pem}"
+}
