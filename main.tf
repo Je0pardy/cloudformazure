@@ -203,12 +203,13 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "cd dockprom",
       "pwd",
       "docker info",
-      "ADMIN_USER=admin ADMIN_PASSWORD=admin ADMIN_PASSWORD_HASH=JDJhJDE0JE91S1FrN0Z0VEsyWmhrQVpON1VzdHVLSDkyWHdsN0xNbEZYdnNIZm1pb2d1blg4Y09mL0ZP sudo docker-compose up -d",
+      "sudo docker-compose up -d",
       "cd ..",
       "git clone https://github.com/Je0pardy/cloudformazure.git",
       "cd cloudformazure",
       "pip3 install prometheus_client",
-      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/"
+      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/",
+      "python3 weather.py"
     ]
 
     connection {
