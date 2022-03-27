@@ -10,6 +10,7 @@ This project is used to create a virtual machine, install and configure Promethe
 
 # Pre-requisites
 [Terraform](https://www.terraform.io/) installed on your system 
+[Az Cli](https://docs.microsoft.com/tr-tr/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed on your system
 
 # Nice to have
 [Azure Storage](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=powershell) For backend.tf (it's commented out on repo)
@@ -29,6 +30,9 @@ This project is used to create a virtual machine, install and configure Promethe
   - linux_virtual_machine_name  = "linuxvm019"
 
 ## Building the Terraform-based infrastructure
+*First off all you need login azure portal via azure cli*
+"az login"
+
 *initialize terraform Azure modules*  
 "terraform init"   
 *plan and save the infra changes into tfplan file*  
@@ -36,7 +40,13 @@ This project is used to create a virtual machine, install and configure Promethe
 *apply the plan*  
 "terraform apply tfplan"    
 *delete the infra*  
-"terraform destroy"    
+"terraform destroy"
+
+##Acces Temperature in Grafana
+You need to get Public IP of VM from terraform apply output (there is an outputs.tf file on repo)
+"terraform output vm_ip"
+<VM IP>:3000 login with default password (admin:admin) you can change the password after login
+
 
 ## Resources ##
 
