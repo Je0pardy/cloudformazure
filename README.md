@@ -1,6 +1,6 @@
 Hello! I'm Burak.
 
-#About me
+# About me
 
 * 💼 Senior DevOps Engineer at [Intertech](https://www.intertech.com.tr/)
 * ❤️ I love writing automation scripts and building infrastructures
