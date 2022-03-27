@@ -7,6 +7,8 @@ This project is used to create a virtual machine, install and configure Promethe
 [Azure Storage](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=powershell) For backend.tf (it's commented out on repo)
 
 * An accessible Azure bucket to store Terraform state (specified in backend.tf).
+
+# Variables
 * A Terraform variables file customized for  assessment environment, for example:
 
   - resource_group_name         = "my_terraform_rg"
