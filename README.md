@@ -2,9 +2,9 @@ Hello! I'm Burak.
 
 #About me
 
-* Senior DevOps Engineer at [Intertech](https://www.intertech.com.tr/)
-* I love writing automation scripts and building infrastructures
-* Ask me about anything [here](https://www.linkedin.com/in/burak-aydin-9a392065/)
+* 💼 Senior DevOps Engineer at [Intertech](https://www.intertech.com.tr/)
+* ❤️ I love writing automation scripts and building infrastructures
+* 💬 Ask me about anything [here](https://www.linkedin.com/in/burak-aydin-9a392065/)
 
 This project is used to create a virtual machine, install and configure Prometheus with Grafana on Azure Cloud.
 
