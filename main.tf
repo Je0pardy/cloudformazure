@@ -207,9 +207,9 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "cd ..",
       "git clone https://github.com/Je0pardy/cloudformazure.git",
       "cd cloudformazure",
+      "sleep 30",
       "python3 -m pip install prometheus_client",
-      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/",
-      "python3 weather.py"
+      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/"
     ]
 
     connection {
