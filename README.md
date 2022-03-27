@@ -1,4 +1,4 @@
-                                                  ***Hello! I'm Burak.***
+                                                  Hello! I'm Burak.
 
 # About me
 
