@@ -209,7 +209,8 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "cd cloudformazure",
       "sleep 30",
       "python3 -m pip install prometheus_client",
-      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/"
+      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/",
+      "nohup python3 weather.py &"
     ]
 
     connection {
