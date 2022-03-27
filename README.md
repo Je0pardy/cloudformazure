@@ -46,7 +46,7 @@ This project is used to create a virtual machine, install and configure Promethe
 You need to get Public IP of VM from terraform apply output (there is an outputs.tf file on repo)  
 "terraform output vm_ip"
 
-From web browser VM IP:3000 login with default password (admin:admin) you can change the password after login  
+From web browser VM IP:3000 login Grafana with default password (admin:admin) you can change the password after login  
 
 
 ## Resources ##
