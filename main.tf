@@ -57,7 +57,7 @@ resource "azurerm_network_security_group" "nsg" {
     source_address_prefix      = "*"
     destination_address_prefix = "*"
   }
-    security_rule {
+  security_rule {
     name                       = "Grafana"
     priority                   = 1002
     direction                  = "Inbound"
@@ -69,7 +69,7 @@ resource "azurerm_network_security_group" "nsg" {
     destination_address_prefix = "*"
   }
 
-    security_rule {
+  security_rule {
     name                       = "Prometheus"
     priority                   = 1003
     direction                  = "Inbound"
@@ -213,14 +213,14 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
     ]
 
     connection {
-      type     = "ssh"
-      user     = "azureuser"
-      host     = azurerm_linux_virtual_machine.linuxvm.public_ip_address
-      private_key = tls_private_key.example_ssh.private_key_pem 
+      type        = "ssh"
+      user        = "azureuser"
+      host        = azurerm_linux_virtual_machine.linuxvm.public_ip_address
+      private_key = tls_private_key.example_ssh.private_key_pem
     }
-  } 
+  }
 }
 resource "local_file" "key" {
   filename = "myKeylocal.pem"
-  content  = "${tls_private_key.example_ssh.private_key_pem}"
+  content  = tls_private_key.example_ssh.private_key_pem
 }
