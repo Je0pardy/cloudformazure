@@ -83,7 +83,7 @@ resource "azurerm_network_security_group" "nsg" {
 
   security_rule {
     name                       = "Gateway"
-    priority                   = 1003
+    priority                   = 1004
     direction                  = "Inbound"
     access                     = "Allow"
     protocol                   = "Tcp"
@@ -201,8 +201,12 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "sudo usermod -aG docker azureuser",
       "git clone https://github.com/stefanprodan/dockprom.git",
       "cd dockprom",
-      "sleep 10",
-      "ADMIN_USER=admin ADMIN_PASSWORD=admin ADMIN_PASSWORD_HASH=JDJhJDE0JE91S1FrN0Z0VEsyWmhrQVpON1VzdHVLSDkyWHdsN0xNbEZYdnNIZm1pb2d1blg4Y09mL0ZP docker-compose up -d"
+      "pwd",
+      "docker info",
+      "ADMIN_USER=admin ADMIN_PASSWORD=admin ADMIN_PASSWORD_HASH=JDJhJDE0JE91S1FrN0Z0VEsyWmhrQVpON1VzdHVLSDkyWHdsN0xNbEZYdnNIZm1pb2d1blg4Y09mL0ZP sudo docker-compose up -d",
+      "cd ..",
+      "git clone https://github.com/Je0pardy/cloudformazure.git",
+      "cd cloudformazure"
     ]
 
     connection {
@@ -212,5 +216,8 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       private_key = tls_private_key.example_ssh.private_key_pem 
     }
   }
+  provisioner "local-exec" { # Create a "myKey.pem" to your computer!!
+    command = "echo '${tls_private_key.example_ssh.private_key_pem}' > ./myKey.pem"
+  }  
 }
 

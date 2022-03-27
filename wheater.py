@@ -31,5 +31,5 @@ def push_temperature(url):
         time.sleep(30)
         
 
-urls="http://20.224.240.5:9091"
+urls="http://localhost:9091"
 push_temperature(urls)
