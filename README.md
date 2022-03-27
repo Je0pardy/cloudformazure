@@ -9,7 +9,7 @@ Hello! I'm Burak.
 This project is used to create a virtual machine, install and configure Prometheus with Grafana on Azure Cloud.
 
 # Pre-requisites
-[Terraform](https://www.terraform.io/) installed on your system 
+[Terraform](https://www.terraform.io/) installed on your system   
 [Az Cli](https://docs.microsoft.com/tr-tr/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed on your system
 
 # Nice to have
