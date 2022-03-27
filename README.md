@@ -7,7 +7,7 @@
 * 💬 For contacting me [Linkedin](https://www.linkedin.com/in/burak-aydin-9a392065/)
 
 # Project Description
-This project is used to create a virtual machine, install and configure Prometheus with Grafana on Azure Cloud.
+This project is used to create a virtual machine, install Prometheus with Grafana on Azure Cloud and monitor current temperature in Tallinn.
 
 # Pre-requisites
 [Terraform](https://www.terraform.io/) installed on your system   
