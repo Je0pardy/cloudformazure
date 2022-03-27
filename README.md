@@ -22,13 +22,13 @@ This project is used to create a virtual machine, install and configure Promethe
 
 ## Building the Terraform-based infrastructure
 *initialize terraform Azure modules*  
-terraform init  
+"terraform init"   
 *plan and save the infra changes into tfplan file*  
-terraform plan -out tfplan  
+"terraform plan -out tfplan"  
 *apply the plan*  
-terraform apply tfplan  
+"terraform apply tfplan"    
 *delete the infra*  
-terraform destroy  
+"terraform destroy"    
 
 ## Resources ##
 
