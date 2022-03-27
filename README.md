@@ -6,6 +6,7 @@
 * ❤️ I love writing automation scripts and building infrastructures
 * 💬 For contacting me [Linkedin](https://www.linkedin.com/in/burak-aydin-9a392065/)
 
+# Project Description
 This project is used to create a virtual machine, install and configure Prometheus with Grafana on Azure Cloud.
 
 # Pre-requisites
