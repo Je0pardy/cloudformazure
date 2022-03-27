@@ -20,8 +20,15 @@ This project is used to create a virtual machine, install and configure Promethe
   - network_interface_name      = "nicprod019"
   - linux_virtual_machine_name  = "linuxvm019"
 
-# Building the Terraform-based infrastructure
-First off you need to login and create subscription
+## Building the Terraform-based infrastructure
+- initialize terraform Azure modules
+terraform init
+- plan and save the infra changes into tfplan file
+terraform plan -out tfplan
+- plan and save the infra changes into tfplan file
+terraform apply tfplan
+- delete the infra
+terraform destroy
 
 ## Resources ##
 
