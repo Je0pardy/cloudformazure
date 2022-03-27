@@ -46,7 +46,12 @@ This project is used to create a virtual machine, install and configure Promethe
 You need to get Public IP of VM from terraform apply output (there is an outputs.tf file on repo)  
 "terraform output vm_ip"
 
-From web browser VM IP:3000 login Grafana with default password (admin:admin) you can change the password after login  
+From web browser VM IP:3000 login Grafana with default password (admin:admin) you can change the password after login.
+There is a predefined Dashboard called as Weather in Estonia (weatherestonia.json)
+
+## Github Actions
+For automate the flow, github actions is used.
+There are two workflows for terraform plan and apply. When a PR created workflow "Terraform Plan" triggering and after succesfull run and merge "Terraform Apply" also tiggering automatically and provision infrastructure.
 
 
 ## Resources ##
