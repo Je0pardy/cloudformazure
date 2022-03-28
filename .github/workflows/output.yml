@@ -24,5 +24,6 @@ jobs:
       
       - name: Terraform Out
         run: |
-          Key=$(terraform output -raw tls_private_key ) 
+          Key=$(terraform output -raw tls_private_key )
+          echo $Key
         
