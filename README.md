@@ -57,7 +57,7 @@ Secrets are stored in github Repositry secrets used in workflow yaml files.
 *delete the infra*  
 "terraform destroy"
 
-*If you would like top deploy Weather Application you should trigger Deploy Weather Project or do this steps manually.  
+*If you would like top deploy Weather Application you should trigger Deploy Weather Project or do this steps manually.*  
 [Deploy Weather Project](https://github.com/Je0pardy/cloudformazure/actions/workflows/output.yml) 
 ## Acces Temperature in Grafana
 You need to get Public IP of VM from terraform apply output (there is an outputs.tf file on repo)  
