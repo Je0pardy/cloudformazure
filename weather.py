@@ -22,13 +22,11 @@ def prometheus_temperature(num):
     g.set(num)
     return registry
 def push_temperature(url):
-    while True:
-        temp = get_temperature()
-        registry = prometheus_temperature(temp)
-        #registry = prometheus_temperature(get_temperature())
-        push_to_gateway(url, "temperature collector", registry, handler=my_auth_handler)
-        print(temp)
-        time.sleep(30)
+    #temp = get_temperature()
+    #registry = prometheus_temperature(temp)
+    registry = prometheus_temperature(get_temperature())
+    push_to_gateway(url, "temperature collector", registry, handler=my_auth_handler)
+    #print(temp)
         
 
 urls="http://localhost:9091"
