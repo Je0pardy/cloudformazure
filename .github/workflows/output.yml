@@ -7,22 +7,34 @@ jobs:
   terraform:
     runs-on: ubuntu-latest
 
-    env:
-      ARM_CLIENT_ID: b2c4a047-1b3a-44f4-9c44-eff7388e56a0
-      ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-      ARM_SUBSCRIPTION_ID: 519445de-eb10-4fdf-bc22-d30dd1ce2b70
-      ARM_TENANT_ID: 5e72c0ea-91fe-4fa6-989a-03bd8d1c8c46
-
     steps:
       - uses: actions/checkout@v2
+      - name: copy python file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          port: 22
+          key: ${{ secrets.VM_KEY }}
+          source: "weather.py"
+          target: "/home/azureuser"
+          
+      - name: copy dashboard file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          port: 22
+          key: ${{ secrets.VM_KEY }}
+          source: "weatherestonia.json"
+          target: "/home/azureuser/dockprom/grafana/provisioning/dashboards/"
+          
 
-      - name: Setup Terraform
-        uses: hashicorp/setup-terraform@v1
-
-      - name: Terraform Init
-        run: terraform init
-      
-      - name: Terraform Out
-        run: |
-          Key=$(terraform output -raw tls_private_key ) 
-        
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_KEY }}
+          port: 22
+          script: echo  '* * * * * python3 /home/azureuser/weather.py' | crontab    
