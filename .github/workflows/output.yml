@@ -1,4 +1,4 @@
-name: Terraform Output
+name: Deploy Weather Project
 
 on:
   workflow_dispatch:
