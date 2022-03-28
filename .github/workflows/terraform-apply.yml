@@ -9,10 +9,10 @@ jobs:
     runs-on: ubuntu-latest
 
     env:
-      ARM_CLIENT_ID: b2c4a047-1b3a-44f4-9c44-eff7388e56a0
+      ARM_CLIENT_ID: ${{secrets.TF_ARM_CLIENT_ID}}
       ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
-      ARM_SUBSCRIPTION_ID: 519445de-eb10-4fdf-bc22-d30dd1ce2b70
-      ARM_TENANT_ID: 5e72c0ea-91fe-4fa6-989a-03bd8d1c8c46
+      ARM_SUBSCRIPTION_ID: ${{secrets.TF_ARM_SUBSCRIPTION_ID}}
+      ARM_TENANT_ID: ${{secrets.TF_ARM_TENANT_ID}}
 
     steps:
       - uses: actions/checkout@v2
