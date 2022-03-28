@@ -31,6 +31,6 @@ jobs:
 
       - name: SCP
         run: |
-          scp weatherestonia.json azureuser@${{ env.IP }}:
+          scp weatherestonia.json azureuser@$IP:
 
   
