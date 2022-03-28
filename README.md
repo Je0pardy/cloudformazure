@@ -33,7 +33,7 @@ If you don't want to use azure storage you can delete or comment out backend tf.
   - linux_virtual_machine_name  = "linuxvm019"
 
 # Secrets
-Secrets are stored in github Repositry secrets
+Secrets are stored in github Repositry secrets used in workflow yaml files.
 
      - TF_ARM_CLIENT_ID  //Azure Client ID
      - TF_ARM_CLIENT_SECRET  //Azure Clint Secret
