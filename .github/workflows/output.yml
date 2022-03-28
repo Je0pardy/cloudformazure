@@ -26,5 +26,7 @@ jobs:
         run: |
           terraform output -raw tls_private_key > private.key
           cat private.key 
+          IP=$(terraform output -raw vm_ip ) 
+          echo $IP
 
         
