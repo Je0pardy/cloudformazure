@@ -53,7 +53,7 @@ There is a predefined Dashboard called as Weather in Estonia (weatherestonia.jso
 
 ## Github Actions
 For automate the flow, github actions is used.
-There are four workflows for terraform plan and apply. When a PR created workflow [Terraform Plan](https://github.com/Je0pardy/cloudformazure/actions/workflows/terraform-plan.yml) triggering and after succesfull run and merge [Terraform Apply](https://github.com/Je0pardy/cloudformazure/actions/workflows/terraform-apply.yml) also tiggering automatically and provision infrastructure after merge to master.   
+There are four workflows for terraform plan and apply. When a PR created workflow [Terraform Plan](https://github.com/Je0pardy/cloudformazure/actions/workflows/terraform-plan.yml) triggering and after succesfull run and merge [Terraform Apply](https://github.com/Je0pardy/cloudformazure/actions/workflows/terraform-apply.yml) also tiggering automatically and provision infrastructure after merge to master branch.   
 [Terreform Destroy](https://github.com/Je0pardy/cloudformazure/actions/workflows/terraform-destroy.yaml) Destroys whole infrastructure
 [Deploy Weather Project](https://github.com/Je0pardy/cloudformazure/actions/workflows/output.yml) Deploy python code and copies custom dashboard to grafana.
 
