@@ -32,7 +32,7 @@ jobs:
       - name: copy file via ssh password 
         uses: appleboy/scp-action@master
         with:
-            host: $IP
+            host: ${{ env.IP }}
             username: azureuser
             key: private.key
             port: 22
