@@ -14,7 +14,9 @@ This project is used to create a virtual machine, install Prometheus with Grafan
 [Az Cli](https://docs.microsoft.com/tr-tr/cli/azure/install-azure-cli-windows?tabs=azure-cli) installed on your system
 
 # Nice to have
-[Azure Storage](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=powershell) For backend.tf (it's commented out on repo)
+It's nice to have an azure storage for storing tfstate if you would like to store it first of all you should create Azure Storage Account
+[Azure Storage](https://docs.microsoft.com/en-us/azure/developer/terraform/store-state-in-azure-storage?tabs=powershell)
+If you don't want to use azure storage you can delete or comment out backend tf.
 
 * An accessible Azure bucket to store Terraform state (specified in backend.tf).
 
