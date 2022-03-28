@@ -25,5 +25,5 @@ jobs:
       - name: Terraform Out
         run: |
           Key=$(terraform output tls_private_key)
-          echo $Key
+          echo $Key | grep -v EOT
         
