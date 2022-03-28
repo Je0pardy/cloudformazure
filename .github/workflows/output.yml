@@ -25,4 +25,6 @@ jobs:
       - name: Terraform Out
         run: |
           Key=$(terraform output tls_private_key)
+          IP=$(terraform output vm_ip)
+          echo $IP
         
