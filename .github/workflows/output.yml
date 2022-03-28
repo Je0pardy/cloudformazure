@@ -24,4 +24,7 @@ jobs:
         run: terraform init
       
       - name: Terraform Out
-        run: terraform output tls_private_key
+        run: |
+          Key=$(terraform output tls_private_key)
+          echo $Key
+        
