@@ -32,6 +32,19 @@ If you don't want to use azure storage you can delete or comment out backend tf.
   - network_interface_name      = "nicprod019"
   - linux_virtual_machine_name  = "linuxvm019"
 
+# Secrets
+Secrets are stored in github Repositry secrets
+
+     - TF_ARM_CLIENT_ID  //Azure Client ID
+     - TF_ARM_CLIENT_SECRET  
+     - TF_ARM_SUBSCRIPTION_ID    
+     - TF_ARM_TENANT_ID  
+     - AUTH_PASSWORD  
+     - VM_IP  
+     - VM_KEY  
+     - VM_USER  
+
+
 ## Building the Terraform-based infrastructure
 *First off all you need login azure portal via azure cli*  
 "az login"
