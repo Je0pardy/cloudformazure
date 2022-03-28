@@ -9,12 +9,32 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: copy file via ssh key
+      - name: copy python file via ssh key
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.VM_IP }}
-          username: azureuser
+          username: ${{ secrets.VM_USER }}
           port: 22
           key: ${{ secrets.VM_KEY }}
           source: "weather.py"
           target: "/home/azureuser"
+          
+      - name: copy dashboard file via ssh key
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          port: 22
+          key: ${{ secrets.VM_KEY }}
+          source: "weatherestonia.json"
+          target: "/home/azureuser/dockprom/grafana/provisioning/dashboards/"
+          
+
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_KEY }}
+          port: 22
+          script: echo  '* * * * * python3 /home/azureuser/cloudformazure/weather.py' | crontab    
