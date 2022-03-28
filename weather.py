@@ -8,7 +8,7 @@ from prometheus_client.exposition import basic_auth_handler
 
 def my_auth_handler(url, method, timeout, headers, data):
     username = 'admin'
-    password = 'admin'
+    password = '%changeit%'
     return basic_auth_handler(url, method, timeout, headers, data, username, password)
 
 HOURLY_RED_HAT = "https://api.openweathermap.org/data/2.5/onecall?lat=59.4717&lon=24.4580&appid=b6187994e3efa0cf3bab314f7e457dfc"

@@ -37,4 +37,15 @@ jobs:
           username: ${{ secrets.VM_USER }}
           key: ${{ secrets.VM_KEY }}
           port: 22
-          script: echo  '* * * * * python3 /home/azureuser/weather.py' | crontab    
+          script: echo  '* * * * * python3 /home/azureuser/weather.py' | crontab 
+      
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.VM_IP }}
+          username: ${{ secrets.VM_USER }}
+          key: ${{ secrets.VM_KEY }}
+          port: 22
+          script: sed -i 's/%changeit%/${{ secrets.AUTH_PASSWORD }}/g' /home/azureuser/weather.py
+         
+
