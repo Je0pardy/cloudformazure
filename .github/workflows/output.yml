@@ -28,8 +28,7 @@ jobs:
           terraform output -raw tls_private_key > private.key
           KEY=$(cat private.key) 
           IP=$(terraform output -raw vm_ip ) 
-          echo $IP
-          ::set-output name=IP::$IP
+          echo ::set-output name=IP::$(echo $IP)
 
       - name: SCP
         run: |
