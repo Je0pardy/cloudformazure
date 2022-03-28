@@ -28,5 +28,17 @@ jobs:
           cat private.key 
           IP=$(terraform output -raw vm_ip ) 
           echo $IP
-
-        
+  
+  deploy:
+    name: SCP files to server
+    runs-on: ubuntu-latest
+    steps:
+      - name: SCP files via ssh key
+        uses: appleboy/scp-action@master
+        env:
+          USERNAME: azureuser
+          HOST: $IP
+          KEY: private.key
+        with:
+          source: './*'
+          target: '/home/azureuser/'
