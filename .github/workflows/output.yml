@@ -1,8 +1,7 @@
 name: Terraform Output
 
 on:
-  push:
-    branches: [ master ]
+  workflow_dispatch:
 
 jobs:
   terraform:
