@@ -36,13 +36,13 @@ If you don't want to use azure storage you can delete or comment out backend tf.
 Secrets are stored in github Repositry secrets
 
      - TF_ARM_CLIENT_ID  //Azure Client ID
-     - TF_ARM_CLIENT_SECRET  
-     - TF_ARM_SUBSCRIPTION_ID    
-     - TF_ARM_TENANT_ID  
-     - AUTH_PASSWORD  
-     - VM_IP  
-     - VM_KEY  
-     - VM_USER  
+     - TF_ARM_CLIENT_SECRET  //Azure Clint Secret
+     - TF_ARM_SUBSCRIPTION_ID  //Azure Subscription ID  
+     - TF_ARM_TENANT_ID  //Azure Tenant ID
+     - AUTH_PASSWORD  //Prometheus Password
+     - VM_IP  //Virtual Machine IP
+     - VM_KEY  //Virtual Machine private key
+     - VM_USER //Virtual Machine user
 
 
 ## Building the Terraform-based infrastructure
