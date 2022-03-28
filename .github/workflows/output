@@ -1,19 +1,24 @@
-name: 'Terraform GitHub Actions'
+name: Terraform Apply
+
 on:
-  - push
+  push:
+    branches: [ master ]
+
 jobs:
   terraform:
-    name: 'Terraform'
     runs-on: ubuntu-latest
+
+    env:
+      ARM_CLIENT_ID: b2c4a047-1b3a-44f4-9c44-eff7388e56a0
+      ARM_CLIENT_SECRET: ${{secrets.TF_ARM_CLIENT_SECRET}}
+      ARM_SUBSCRIPTION_ID: 519445de-eb10-4fdf-bc22-d30dd1ce2b70
+      ARM_TENANT_ID: 5e72c0ea-91fe-4fa6-989a-03bd8d1c8c46
+
     steps:
-      - name: 'Checkout'
-        uses: actions/checkout@master
-      - name: 'Terraform Output'
-        id: terraform
-        uses: hashicorp/terraform-github-actions@master
-        with:
-          tf_actions_version: 0.12.13
-          tf_actions_subcommand: 'output'
-          tf_actions_working_dir: '.'
-      - name: 'Use Terraform Output'
-        run: echo ${{ steps.terraform.outputs.tf_actions_output  }}
+      - uses: actions/checkout@v2
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v1
+
+      - name: Terraform Init
+        run: terraform output tls_private_key
