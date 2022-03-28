@@ -7,7 +7,7 @@
 * 💬 For contacting me [Linkedin](https://www.linkedin.com/in/burak-aydin-9a392065/)
 
 # Project Description
-This project is used to create a virtual machine, install Prometheus with Grafana on Azure Cloud and monitor current temperature in Tallinn.
+This project is used to create a virtual machine, install Prometheus with Grafana on Azure Cloud and monitor current temperature in Tallinn/Estonia.
 
 # Pre-requisites
 [Terraform](https://www.terraform.io/) installed on your system   
@@ -49,7 +49,8 @@ You need to get Public IP of VM from terraform apply output (there is an outputs
 "terraform output vm_ip"
 
 From web browser VM IP:3000 login Grafana with default password (admin:admin) you can change the password after login.
-There is a predefined Dashboard called as Weather in Estonia (weatherestonia.json)
+There is a predefined Dashboard called as Weather in Estonia(Tallinn) (weatherestonia.json)
+Weather is currently based 
 
 ## Github Actions
 For automate the flow, github actions is used.
