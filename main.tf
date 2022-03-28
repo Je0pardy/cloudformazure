@@ -201,8 +201,6 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "sudo usermod -aG docker azureuser",
       "git clone https://github.com/stefanprodan/dockprom.git",
       "cd dockprom",
-      "pwd",
-      "docker info",
       "sudo docker-compose up -d",
       "cd ..",
       "git clone https://github.com/Je0pardy/cloudformazure.git",
