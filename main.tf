@@ -202,13 +202,8 @@ resource "azurerm_linux_virtual_machine" "linuxvm" {
       "git clone https://github.com/stefanprodan/dockprom.git",
       "cd dockprom",
       "sudo docker-compose up -d",
-      "cd ..",
-      "git clone https://github.com/Je0pardy/cloudformazure.git",
-      "cd cloudformazure",
       "sleep 30",
-      "python3 -m pip install prometheus_client",
-      "cp weatherestonia.json ../dockprom/grafana/provisioning/dashboards/",
-      "echo  '* * * * * python3 /home/azureuser/cloudformazure/weather.py' | crontab"
+      "python3 -m pip install prometheus_client"
     ]
 
     connection {
