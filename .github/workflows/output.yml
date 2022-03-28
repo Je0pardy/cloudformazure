@@ -25,7 +25,7 @@ jobs:
       - name: Terraform Out
         run: |
           terraform output -raw tls_private_key > private.key
-          cat private.key 
+          KEY=$(cat private.key) 
           IP=$(terraform output -raw vm_ip ) 
           echo $IP
 
@@ -34,7 +34,7 @@ jobs:
         with:
             host: ${{ env.IP }}
             username: azureuser
-            key: private.key
+            key: ${{ env.KEY }}
             port: 22
             source: "weather.py"
             target: "/home/ubuntu/"    
