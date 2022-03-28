@@ -23,14 +23,16 @@ jobs:
         run: terraform init
       
       - name: Terraform Out
+        id: vars
         run: |
           terraform output -raw tls_private_key > private.key
           KEY=$(cat private.key) 
           IP=$(terraform output -raw vm_ip ) 
           echo $IP
+          ::set-output name=IP::$IP
 
       - name: SCP
         run: |
-          scp weatherestonia.json azureuser@$IP:
+          scp -i private.key weatherestonia.json azureuser@${{ steps.vars.outputs.IP }}: 
 
   
