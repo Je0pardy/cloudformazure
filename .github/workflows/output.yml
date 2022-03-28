@@ -29,13 +29,8 @@ jobs:
           IP=$(terraform output -raw vm_ip ) 
           echo $IP
 
-      - name: copy file via ssh password 
-        uses: appleboy/scp-action@master
-        with:
-            host: ${{ env.IP }}
-            username: azureuser
-            key: ${{ env.KEY }}
-            port: 22
-            source: "weather.py"
-            target: "/home/ubuntu/"    
+      - name: SCP
+        run: |
+          scp weatherestonia.json azureuser@${{ env.IP }}:
+
   
