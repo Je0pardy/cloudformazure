@@ -21,7 +21,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 5,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -211,6 +211,7 @@
         "y": 8
       },
       "id": 6,
+      "interval": "60s",
       "options": {
         "footer": {
           "fields": "",
@@ -260,6 +261,6 @@
   "timezone": "",
   "title": "Weather in Estonia",
   "uid": "8x8McHy7o",
-  "version": 10,
+  "version": 2,
   "weekStart": ""
 }
