@@ -211,7 +211,7 @@
         "y": 8
       },
       "id": 6,
-      "interval": "60s",
+      "interval": "300s",
       "options": {
         "footer": {
           "fields": "",
@@ -242,7 +242,7 @@
           "refId": "A"
         }
       ],
-      "title": "Talinn Temperature Table",
+      "title": "Estonia Temperature Table",
       "type": "table"
     }
   ],
